@@ -129,7 +129,7 @@ function Mesh3DApp() {
     gl.polygonOffset(1.0, 1.0);
 
     // TODO: Aufgabe 3a
-   
+    textureA.useBilinearInterpolation = document.getElementById("useBilinearInterpolation").checked;
 
 
     // TODO: Aufgabe 3b
