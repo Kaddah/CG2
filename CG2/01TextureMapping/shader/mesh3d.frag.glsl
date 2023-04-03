@@ -39,7 +39,7 @@ void main()
   	}	else
   	{  
 		// TODO: Aufgabe 3
-		vec3 lightPosition		  	= vec3(0.0, 0.0, 0.0);
+		vec3 lightPosition		  	= vec3(0.0, 1000.0, 0.0);
   	    vec3 viewPosition 			= vec3(0,0,0);
 	    vec3 lightVector			= normalize(lightPosition - fs_position);
 	    vec3 viewVector				= normalize(viewPosition - fs_position);

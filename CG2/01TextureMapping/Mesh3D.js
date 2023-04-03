@@ -26,14 +26,20 @@ function Mesh3DApp() {
     mGlslProgram = new GLSLProgram(mCanvas, await loadDataFromURL(vertexShaderUrl), await loadDataFromURL(fragmentShaderUrl));
     gl.enable(gl.DEPTH_TEST);
     // Load file.
-    const streamReader = await loadBinaryDataStreamFromURL("./../../data/bunny.smm");
+    //const streamReader = await loadBinaryDataStreamFromURL("./../../data/bunny.smm");
+    //const mesh = await SimpleMeshModelIO.load(streamReader);
+    //3
+    const streamReader = await loadBinaryDataStreamFromURL("./../../data/plane.smm");
     const mesh = await SimpleMeshModelIO.load(streamReader);
 
     triangleMeshGL = new TriangleMeshGL(gl, mesh);
     
     textureA = new TextureMap(gl, 0);    
     //Aufgabe 2c
-    await textureA.loadTexture("./../../data/bunnyUV.png");
+    //await textureA.loadTexture("./../../data/bunnyUV.png");
+    await textureA.loadTexture("../../../data/checkerboard.png");
+
+
     // TODO: Aufgabe 4a     
     // TODO: Aufgabe 4e      
     requestAnimationFrame(draw);
@@ -123,6 +129,9 @@ function Mesh3DApp() {
     gl.polygonOffset(1.0, 1.0);
 
     // TODO: Aufgabe 3a
+   
+
+
     // TODO: Aufgabe 3b
     // TODO: Aufgabe 4b
     // TODO: Aufgabe 4c
