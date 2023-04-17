@@ -36,11 +36,13 @@ function Mesh3DApp() {
     
     textureA = new TextureMap(gl, 0);    
     //Aufgabe 2c
-    //await textureA.loadTexture("./../../data/bunnyUV.png");
+    
     await textureA.loadTexture("../../../data/checkerboard.png");
 
 
-    // TODO: Aufgabe 4a     
+    // TODO: Aufgabe 4a    
+    textureB = new TextureMap(gl, 1);  
+    await textureB.loadTexture("./../../data/bunnyUV.png");
     // TODO: Aufgabe 4e      
     requestAnimationFrame(draw);
   }
