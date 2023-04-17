@@ -42,9 +42,22 @@ export class TextureMap {
     bind() {
         // TODO: Aufgabe 4b        
         //Aufgabe 2a
+        const my = this
         this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture);
         // TODO: Aufgabe 3a
+         this.gl.texParameteri(
+         this.gl.TEXTURE_2D,
+         this.gl.TEXTURE_MAG_FILTER,
+         my.useBilinearInterpolation ? this.gl.LINEAR : this.gl.NEAREST
+        );
         // TODO: Aufgabe 3b
+        this.gl.texParameteri(
+            this.gl.TEXTURE_2D,
+            this.gl.TEXTURE_MIN_FILTER,
+            this.useMIPMapping
+        ? (this.useBilinearInterpolation ? this.gl.LINEAR_MIPMAP_LINEAR : this.gl.NEAREST_MIPMAP_NEAREST) 
+        : (this.useBilinearInterpolation ? this.gl.LINEAR : this.gl.NEAREST)
+        );
     }
 
     unbind() {

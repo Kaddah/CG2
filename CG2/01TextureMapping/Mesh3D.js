@@ -133,6 +133,8 @@ function Mesh3DApp() {
 
 
     // TODO: Aufgabe 3b
+    const useMIPMapping = document.getElementById("useMIPMapping").checked;
+    textureA.useMIPMapping = useMIPMapping;
     // TODO: Aufgabe 4b
     // TODO: Aufgabe 4c
     // TODO: Aufgabe 4d
