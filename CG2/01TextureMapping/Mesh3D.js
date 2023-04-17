@@ -138,6 +138,9 @@ function Mesh3DApp() {
     const useMIPMapping = document.getElementById("useMIPMapping").checked;
     textureA.useMIPMapping = useMIPMapping;
     // TODO: Aufgabe 4b
+    textureB.useMIPMapping = useMIPMapping;
+    textureB.useBilinearInterpolation = useBilinearInterpolation;
+    textureB.bind();
     // TODO: Aufgabe 4c
     // TODO: Aufgabe 4d
     //Aufgabe 2d   
@@ -146,6 +149,7 @@ function Mesh3DApp() {
     //Aufgabe 2d
     textureA.unbind();
     // TODO: Aufgabe 4b
+    textureB.unbind();
     if (overlayWireFrame) {
       gl.uniform1i(useUniformColorLoc, true);
       gl.uniform3f(uniformColorLoc, rW, gW, bW);

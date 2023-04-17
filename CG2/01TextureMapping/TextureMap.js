@@ -41,6 +41,7 @@ export class TextureMap {
 
     bind() {
         // TODO: Aufgabe 4b        
+        this.gl.activeTexture(this.gl.TEXTURE0 + this.unit);
         //Aufgabe 2a
         const my = this
         this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture);
@@ -61,7 +62,8 @@ export class TextureMap {
     }
 
     unbind() {
-        // TODO: Aufgabe 4b        
+        // TODO: Aufgabe 4b   
+        this.gl.activeTexture(this.gl.TEXTURE0 + this.unit);
         //Aufgabe 2a
         this.gl.bindTexture(this.gl.TEXTURE_2D, null);
     }
