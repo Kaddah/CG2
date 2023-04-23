@@ -19,7 +19,8 @@ uniform float u_specularExponent;
 uniform sampler2D u_textureA;
 //Aufgabe 4c
 uniform sampler2D u_textureB;
-// TODO: Aufgabe 4d
+//Aufgabe 4d
+uniform float u_blend;
 
 out vec4 fragColor;
 
@@ -50,10 +51,12 @@ void main()
 		vec4 texA = texture(u_textureA, fs_texCoord);
 		//Aufgabe 4c		
 		vec4 texB = texture(u_textureB, fs_texCoord);	
-		fragColor =	vec4(blinnPhong(lightVector, viewVector, normal, u_ambient, vec3(texB.rgb), u_specular, u_specularExponent), 1.0);
 
 				
-		// TODO: Aufgabe 4d		
+		//Aufgabe 4d		
+		vec4 tex = mix(texA, texB, u_blend);
+		fragColor =	vec4(blinnPhong(lightVector, viewVector, normal, u_ambient, vec3(tex.rgb), u_specular, u_specularExponent), 1.0);
+
 		//Aufgabe 1b
 		//fragColor =	vec4(blinnPhong(lightVector, viewVector, normal, u_ambient, vec3(fs_texCoord, 0), u_specular, u_specularExponent), 1.0);
   	}

@@ -144,7 +144,9 @@ function Mesh3DApp() {
     //Aufgabe 4c
     gl.uniform1i(mGlslProgram.getUniformLocation("u_textureB"), textureB.unit); 
 
-    // TODO: Aufgabe 4d
+    //Aufgabe 4d
+    const blend = document.getElementById("Blend").value;
+    gl.uniform1f(mGlslProgram.getUniformLocation("u_blend"), parseFloat(blend)); 
     //Aufgabe 2d   
     textureA.bind();     
     triangleMeshGL.draw();       
