@@ -17,7 +17,8 @@ uniform float u_specularExponent;
 
 //Aufgabe 2e
 uniform sampler2D u_textureA;
-// TODO: Aufgabe 4c
+//Aufgabe 4c
+uniform sampler2D u_textureB;
 // TODO: Aufgabe 4d
 
 out vec4 fragColor;
@@ -38,20 +39,22 @@ void main()
     	fragColor = vec4(u_uniformColor, 1.0);
   	}	else
   	{  
-		// TODO: Aufgabe 3
+		//Aufgabe 3
 		vec3 lightPosition		  	= vec3(0.0, 1000.0, 0.0);
   	    vec3 viewPosition 			= vec3(0,0,0);
 	    vec3 lightVector			= normalize(lightPosition - fs_position);
 	    vec3 viewVector				= normalize(viewPosition - fs_position);
 	    vec3 normal					= normalize(fs_normal);	
 
-		// TODO: Aufgabe 2e	
-		vec4 color = texture(u_textureA, fs_texCoord);
-		fragColor =	vec4(blinnPhong(lightVector, viewVector, normal, u_ambient, vec3(color.rgb), u_specular, u_specularExponent), 1.0);
+		//Aufgabe 2e	
+		vec4 texA = texture(u_textureA, fs_texCoord);
+		//Aufgabe 4c		
+		vec4 texB = texture(u_textureB, fs_texCoord);	
+		fragColor =	vec4(blinnPhong(lightVector, viewVector, normal, u_ambient, vec3(texB.rgb), u_specular, u_specularExponent), 1.0);
 
-		// TODO: Aufgabe 4c						
+				
 		// TODO: Aufgabe 4d		
-		// TODO: Aufgabe 1b
+		//Aufgabe 1b
 		//fragColor =	vec4(blinnPhong(lightVector, viewVector, normal, u_ambient, vec3(fs_texCoord, 0), u_specular, u_specularExponent), 1.0);
   	}
 }

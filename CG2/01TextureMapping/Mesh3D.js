@@ -40,7 +40,7 @@ function Mesh3DApp() {
     await textureA.loadTexture("../../../data/checkerboard.png");
 
 
-    // TODO: Aufgabe 4a    
+    //Aufgabe 4a    
     textureB = new TextureMap(gl, 1);  
     await textureB.loadTexture("./../../data/bunnyUV.png");
     // TODO: Aufgabe 4e      
@@ -130,25 +130,27 @@ function Mesh3DApp() {
     gl.enable(gl.POLYGON_OFFSET_FILL);
     gl.polygonOffset(1.0, 1.0);
 
-    // TODO: Aufgabe 3a
+    //Aufgabe 3a
     textureA.useBilinearInterpolation = document.getElementById("useBilinearInterpolation").checked;
 
 
-    // TODO: Aufgabe 3b
+    //Aufgabe 3b
     const useMIPMapping = document.getElementById("useMIPMapping").checked;
     textureA.useMIPMapping = useMIPMapping;
-    // TODO: Aufgabe 4b
+    //Aufgabe 4b
     textureB.useMIPMapping = useMIPMapping;
     textureB.useBilinearInterpolation = useBilinearInterpolation;
     textureB.bind();
-    // TODO: Aufgabe 4c
+    //Aufgabe 4c
+    gl.uniform1i(mGlslProgram.getUniformLocation("u_textureB"), textureB.unit); 
+
     // TODO: Aufgabe 4d
     //Aufgabe 2d   
     textureA.bind();     
     triangleMeshGL.draw();       
     //Aufgabe 2d
     textureA.unbind();
-    // TODO: Aufgabe 4b
+    //Aufgabe 4b
     textureB.unbind();
     if (overlayWireFrame) {
       gl.uniform1i(useUniformColorLoc, true);

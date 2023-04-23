@@ -32,7 +32,7 @@ export class TextureMap {
     loadTextureData() {
         this.width = this.image.width;
         this.height = this.image.height;
-        // TODO: Aufgabe 2b
+        //Aufgabe 2b
         this.unbind();
         this.bind();
         this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.width, this.height, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, this.image);
@@ -40,18 +40,18 @@ export class TextureMap {
     }
 
     bind() {
-        // TODO: Aufgabe 4b        
+        //Aufgabe 4b        
         this.gl.activeTexture(this.gl.TEXTURE0 + this.unit);
         //Aufgabe 2a
         const my = this
         this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture);
-        // TODO: Aufgabe 3a
+        //Aufgabe 3a
          this.gl.texParameteri(
          this.gl.TEXTURE_2D,
          this.gl.TEXTURE_MAG_FILTER,
          my.useBilinearInterpolation ? this.gl.LINEAR : this.gl.NEAREST
         );
-        // TODO: Aufgabe 3b
+        //Aufgabe 3b
         this.gl.texParameteri(
             this.gl.TEXTURE_2D,
             this.gl.TEXTURE_MIN_FILTER,
@@ -62,7 +62,7 @@ export class TextureMap {
     }
 
     unbind() {
-        // TODO: Aufgabe 4b   
+        //Aufgabe 4b   
         this.gl.activeTexture(this.gl.TEXTURE0 + this.unit);
         //Aufgabe 2a
         this.gl.bindTexture(this.gl.TEXTURE_2D, null);
