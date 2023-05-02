@@ -44,7 +44,7 @@ function Mesh3DApp() {
     textureB = new TextureMap(gl, 1);  
     //await textureB.loadTexture("./../../data/bunnyUV.png");
     //Aufgabe 4e  
-    textureB.createDebugTexture(5);  
+    textureB.createDebugTexture(Math.log2(textureA.width));  
     requestAnimationFrame(draw);
   }
 

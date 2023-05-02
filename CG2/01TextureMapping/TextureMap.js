@@ -70,32 +70,27 @@ export class TextureMap {
 
     createDebugTexture(maxLevel) {
         //Aufgabe 4e
-        this.width = 1024;
-        this.height = 1024;
+        this.width = 1 << maxLevel;
+        this.height = 1 << maxLevel;
         this.unbind();
         this.bind();
-        const data = new Uint8Array(this.width * this.height* 4);
+        const lut = [[1, 0 ,0], [1, 1 ,0], [0, 1 ,0], [0,1,1], [0,0,1], [1, 0, 1]]; //look up tabelle für regenbogen
 
-        const rowsPerLevel = this.height /maxLevel;
-        let currentRColor = Math.round(Math.random() * 255);
-        let currentGColor = Math.round(Math.random() * 255);
-        let currentBColor = Math.round(Math.random() * 255);
+        for(let level = 0; level <= maxLevel; level++){
+            const size = 1 << (maxLevel-level);
+            const data = new Uint8Array(size*size*4);
+            const [r,g,b] = lut[level % lut.length];
 
-        for(let row = 0, currentLevelRow = 0, i = 0; row < this.height; row++, currentLevelRow++){
-            if(currentLevelRow > rowsPerLevel){
-                currentRColor = Math.round(Math.random() * 255);
-                currentGColor = Math.round(Math.random() * 255);
-                currentBColor = Math.round(Math.random() * 255);
-                currentLevelRow = 0;
+            for(let i = 0; i < size*size; i++){
+                data[i * 4 + 0] = r*255;
+                data[i * 4 + 1] = g*255;
+                data[i * 4 + 2] = b*255;
+                data[i * 4 + 3] = 255;
             }
-            for(let col = 0; col < this.width; col++, i += 4){
-                data[i] = currentRColor;
-                data[i+1] = currentGColor;
-                data[i+2] = currentBColor;
-                data[i+3] = 255;
-            }
+            this.gl.texImage2D(this.gl.TEXTURE_2D, level, this.gl.RGBA, size, size, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, data);
         }
-        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.width, this.height, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, data);
-        this.gl.generateMipmap(this.gl.TEXTURE_2D);
+
+      
+        }
+        
     }
-}
