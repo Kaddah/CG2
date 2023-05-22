@@ -1,0 +1,59 @@
+Downloaded from https://www.poliigon.com/texture/rust-mixed-on-paint-012
+
+License FAQ
+Can I use the textures for commercial purposes, such as in a render, animation or printed media such as magazines or t-shirts?
+
+Yes, provided the textures are purchased while on the Freelancer plan, Production plan or with On-demand credits from a credit pack.
+
+Can I use the textures in a commercial video game?
+
+Yes, provided the game does NOT have an Open Source License and the textures are purchased while on the Freelancer plan, Production plan or with On-demand credits from a credit pack.
+
+If the textures can be accessed or extracted, then you must include a text license containing the words “Contains textures from Poliigon.com - Textures may not be redistributed”.
+
+Can I use the textures in a freely distributed game mod, game map or game add-on?
+
+Yes, provided the game does NOT have an Open Source License.
+
+If the textures can be accessed or extracted, then you must include a text license containing the words “Contains textures from Poliigon.com - Textures may not be redistributed”.
+
+Can I use the textures when building a website?
+
+Yes, provided you are not using the textures in preset templates to resell them and if the textures are not accessible in their raw format.  Also, the textures need to be purchased while on the Freelancer plan, Production plan or with On-demand credits from a credit pack.
+
+
+Can I embed the textures in a model and make it available under the Creative Commons license?
+
+Unfortunately not.  The creative commons license is incompatible with our site.  You can, however, provide links in your project files (ex. .blend) for the textures needed for your blend.  This will enable users to download it themselves. 
+
+Can I embed the textures in a model (ex. .blend .3dsmax) and sell or redistribute it?
+
+Yes, provided your end product is NOT intended to be a bundled release of our textures (ex. to resell a package of models containing extractable textures in a material library).  You must also include a text license with the project file containing the words “Contains textures from Poliigon.com - Textures may not be redistributed”.  The model must be of your own original content and any attempt to use this allowance for the reselling of the textures for profit is not allowed.   
+
+Also, the textures need to be purchased while on the Freelancer plan, Production plan or with On-demand credits from a credit pack.
+
+
+
+Do I need to include a Poliigon link or credits when using the textures?
+
+Except in cases where a text license is necessary: a) Selling or redistributing models with extractable textures (see above) and b) Releasing game add-ons (see above) - no, you do not need to include a license, but you are welcome to do so. 
+
+Can I modify the textures and sell them as my own?
+
+No.  The amount of modification is too hard to specify, and allowing this will invite abuse.  Therefore any selling of textures, even if modified, is forbidden. 
+
+Can I use the texture in a shader, and then sell the shader?
+
+No.  This is considered as a resale.  This includes real-time materials sold through the Unreal Marketplace and Unity Marketplace.
+
+Can I use the textures after my paid membership has ended?
+
+Yes!  Once you have downloaded them, you can use them when needed.  However all usage, whether your subscription is active or expired, must fall within all of our terms and conditions and also within your plan's limits (ex. Hobby plans do not have a commercial license).
+
+Can I use the textures from the Free section for commercial purposes?
+
+Yes, as long as they are used in accordance with all of our terms and conditions.  The same terms and conditions apply for both our purchased and free textures.
+
+Can I use the textures in a trademarked logo?
+
+No.  A logo created with our textures may not be trademarked as the textures are the property of Poliigon.
