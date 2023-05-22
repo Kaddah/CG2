@@ -25,6 +25,8 @@ export class TriangleMeshGL{
         const colorAttributeLocation = 1;
         const normalAttributeLocation = 2;
         const texCoordAttributeLocation = 3;
+        const tangentAttributeLocation = 4;
+        const biTangentAttributeLocation = 5;
 
         this.vao = gl.createVertexArray();
         gl.bindVertexArray(this.vao);
@@ -60,7 +62,6 @@ export class TriangleMeshGL{
             gl.vertexAttribPointer(normalAttributeLocation, 3, gl.FLOAT, false, 0, 0);
             gl.enableVertexAttribArray(normalAttributeLocation);
         }
-        //Aufgabe 1a
         const tb = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, tb);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(texCoords), gl.STATIC_DRAW);
@@ -76,6 +77,21 @@ export class TriangleMeshGL{
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
         gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint32Array(triangles), gl.STATIC_DRAW);
 
+        const {outTangents, outBiTangents} = this.computeTangentFrame(triangles, positions, texCoords);
+        
+        //Buffer für outTangents und outBiTangents
+        const ot = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, ot);
+        gl.bufferData(gl.ARRAY_BUFFER, outTangents,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(tangentAttributeLocation, 3, gl.FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(tangentAttributeLocation); 
+
+        const obt = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, obt);
+        gl.bufferData(gl.ARRAY_BUFFER, outBiTangents,gl.STATIC_DRAW);
+        gl.vertexAttribPointer(biTangentAttributeLocation, 3, gl.FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(biTangentAttributeLocation); 
+
         // Create Vertex Buffer for Wire-Frame
         this.vaoWireFrame = gl.createVertexArray();
         gl.bindVertexArray(this.vaoWireFrame);        
@@ -86,6 +102,7 @@ export class TriangleMeshGL{
         gl.bindBuffer(gl.ARRAY_BUFFER, pb);
         gl.vertexAttribPointer(positionAttributeLocation, 3, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(positionAttributeLocation); 
+
     }
 
     /**

@@ -8,6 +8,8 @@ in vec3 fs_color;
 in vec3 fs_normal;
 in vec3 fs_position;
 in vec2 fs_texCoord;
+in vec3 fs_tangent;
+in vec3 fs_bitangent;
 
 uniform vec3 u_ambient;
 uniform vec3 u_diffuse;
@@ -43,7 +45,10 @@ void main()
 	    vec3 normal					= normalize(fs_normal);	
 		vec4 texA = texture(u_textureA, fs_texCoord);
 		vec4 texB = texture(u_textureB, fs_texCoord);	
-		fragColor = texB * 2.0 - vec4(1.0);
+		//Aufgabe 1b
+		//fragColor = texB * 2.0 - vec4(1.0);
+		fragColor = vec4(abs(fs_tangent), 1.0);
+		//analog für bitangent
 		return;
 		
 			
